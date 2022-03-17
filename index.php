@@ -52,8 +52,7 @@ $db = new Database();
                             </tr>
                         </tbody>
                         <?php $i++;
-                        } 
-                        $jml = $i-1;
+                        }
                         ?>
                     </table>     
                 </div>
