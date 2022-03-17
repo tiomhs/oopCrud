@@ -37,22 +37,22 @@ if (isset($_POST["submit"])) {
                     <form action="" method="post">
                             <div class="mb-1">
                                 <label for="name" class="form-label">Nama : </label>
-                                <input type="text" class="form-control" name="name" id="name" required placeholder="Masukkan Nama Anda dengan Baik dan Benar">
+                                <input type="text" class="form-control" name="name" id="name" required placeholder="Masukkan Nama Anda.......">
                             </div>
                             <br>
                             <div class="mb-1">
                                 <label for="email" class="form-label">Email : </label>
-                                <input type="text" class="form-control" name="email" id="email" required placeholder="Masukkan Email Anda Sendiri ">
+                                <input type="text" class="form-control" name="email" id="email" required placeholder="Masukkan Email Anda..... ">
                             </div>
                             <br>
                             <div class="mb-1">
                                 <label for="noTelp" class="form-label">No Telepon : </label>
-                                <input type="text" class="form-control" name="noTelp" id="noTelp" required placeholder="Jangan Masukan Yang Bukan Nomor Anda">
+                                <input type="text" class="form-control" name="noTelp" id="noTelp" required placeholder="Masukan nomor anda....">
                             </div>
                             <br>
                             <div class="mb-1">
                                 <label for="alamat" class="form-label">Alamat : </label>
-                                <input type="text" class="form-control" name="alamat" id="alamat" required placeholder="Masukan Alamat Rumah Ortu Anda">
+                                <input type="text" class="form-control" name="alamat" id="alamat" required placeholder="Masukan Alamat Rumah Anda...">
                             </div>
                             <br>
                             <button type="submit" name="submit" class="btn btn-primary">Kirim</button>
