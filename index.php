@@ -40,7 +40,7 @@ $db = new Database();
                             foreach($db->tampil() as $data){
                             ?>
                             <tr>
-                            <th scope="row"><?= $i; ?></th>
+                            <td scope="row"><?= $i; ?></td>
                             <td>
                                 <a href="ubah.php?id=<?= $data['id']; ?>">Ubah Data</a>
                                 <a href="hapus.php?id=<?= $data['id']; ?>">Hapus Data</a>
@@ -52,7 +52,9 @@ $db = new Database();
                             </tr>
                         </tbody>
                         <?php $i++;
-                        } ?>
+                        } 
+                        $jml = $i-1;
+                        ?>
                     </table>     
                 </div>
             </div>
