@@ -42,8 +42,8 @@ $db = new Database();
                             <tr>
                             <td scope="row"><?= $i; ?></td>
                             <td>
-                                <a href="ubah.php?id=<?= $data['id']; ?>">Ubah Data</a>
-                                <a href="hapus.php?id=<?= $data['id']; ?>">Hapus Data</a>
+                                <span class="btn btn-danger"><a href="ubah.php?id=<?= $data['id']; ?>" class="text-muted text-decoration-none text-reset">Ubah Data</a></span>
+                                <span class="btn btn-primary"><a href="hapus.php?id=<?= $data['id']; ?>" class="text-muted text-decoration-none text-reset">Hapus Data</a></span>
                             </td>
                             <td><?= $data['nama']; ?></td>
                             <td><?= $data['email']; ?></td>
@@ -53,8 +53,10 @@ $db = new Database();
                         </tbody>
                         <?php $i++;
                         }
+                        $jml = $i - 1;
                         ?>
                     </table>     
+                    <p class="fw-bold">Jumlah Siswa : <?= $jml; ?></p>
                 </div>
             </div>
         </div>
