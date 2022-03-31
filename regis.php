@@ -1,16 +1,28 @@
 <?php  
 
-include "Database.php";
+include "admin/Database.php";
 
-$data = new Database();
+$db = new Database();
 
 if (isset($_POST["submit"])) {
-    $data->tambah($_POST["name"],$_POST["email"],$_POST["noTelp"],$_POST["alamat"]);
-    if (!$data) {
-        echo "Ada yang error nichh!!....";
+    $nama = $_POST["name"];
+    $email = $_POST["email"];
+    $pass = $_POST["password"];
+    $status = $_POST["status"];
+    $noTelp = $_POST["noTelp"];
+    $alamat = $_POST["alamat"];
+
+    $extensi = explode(".", $_FILES["img"]["name"]);
+    $img = "img-" . round(microtime(true)) . "." . end($extensi);
+    $tmp = $_FILES["img"]["tmp_name"];
+    $upload = move_uploaded_file($tmp, "admin/img/". $img);
+    if ($upload) {
+        $db->tambah($nama,$email,$pass,$status,$noTelp,$alamat,$img);
+        header("location: index.php");
     }else {
-        header("Location: index.php");
+        echo "<script>alert('Gagal');</script>";
     }
+
 }
 
 ?>
@@ -33,8 +45,8 @@ if (isset($_POST["submit"])) {
         <div class="container">
             <div class="row justify-content-center mt-5">
                 <div class="col-5 border border-dark border-3 rounded-3 p-3">
-                    <h1>Tambah Data Siswa</h1>
-                    <form action="" method="post">
+                    <h1>Registrasi</h1>
+                    <form action="" method="post" enctype="multipart/form-data">
                             <div class="mb-1">
                                 <label for="name" class="form-label">Nama : </label>
                                 <input type="text" class="form-control" name="name" id="name" required placeholder="Masukkan Nama Anda.......">
@@ -44,7 +56,12 @@ if (isset($_POST["submit"])) {
                                 <label for="email" class="form-label">Email : </label>
                                 <input type="text" class="form-control" name="email" id="email" required placeholder="Masukkan Email Anda..... ">
                             </div>
+                            <div class="mb-1">
+                                <label for="password" class="form-label">Password : </label>
+                                <input type="password" class="form-control" name="password" id="password" required placeholder="Masukkan Password Anda..... ">
+                            </div>
                             <br>
+                                <input type="hidden" name="status">
                             <div class="mb-1">
                                 <label for="noTelp" class="form-label">No Telepon : </label>
                                 <input type="text" class="form-control" name="noTelp" id="noTelp" required placeholder="Masukan nomor anda....">
@@ -54,6 +71,12 @@ if (isset($_POST["submit"])) {
                                 <label for="alamat" class="form-label">Alamat : </label>
                                 <input type="text" class="form-control" name="alamat" id="alamat" required placeholder="Masukan Alamat Rumah Anda...">
                             </div>
+                            <div class="k">
+                                <label for="img" class="form-label">Gambar : </label>
+                                <input type="file" class="form-control" name="img" id="img" required>
+                            </div>
+                            <br>
+                            <a href="login.php">Sudah Punya Akun?</a>
                             <br>
                             <button type="submit" name="submit" class="btn btn-primary">Kirim</button>
                     </form>
